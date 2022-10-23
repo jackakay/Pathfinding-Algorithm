@@ -1,0 +1,17 @@
+C:\Users\jackk\Documents\___\Pathfinding\Pathfinding\Pathfinding\bin\Debug\net6.0-windows\Pathfinding.exe
+C:\Users\jackk\Documents\___\Pathfinding\Pathfinding\Pathfinding\bin\Debug\net6.0-windows\Pathfinding.deps.json
+C:\Users\jackk\Documents\___\Pathfinding\Pathfinding\Pathfinding\bin\Debug\net6.0-windows\Pathfinding.runtimeconfig.json
+C:\Users\jackk\Documents\___\Pathfinding\Pathfinding\Pathfinding\bin\Debug\net6.0-windows\Pathfinding.dll
+C:\Users\jackk\Documents\___\Pathfinding\Pathfinding\Pathfinding\bin\Debug\net6.0-windows\Pathfinding.pdb
+C:\Users\jackk\Documents\___\Pathfinding\Pathfinding\Pathfinding\obj\Debug\net6.0-windows\Pathfinding.csproj.AssemblyReference.cache
+C:\Users\jackk\Documents\___\Pathfinding\Pathfinding\Pathfinding\obj\Debug\net6.0-windows\Pathfinding.Form1.resources
+C:\Users\jackk\Documents\___\Pathfinding\Pathfinding\Pathfinding\obj\Debug\net6.0-windows\Pathfinding.csproj.GenerateResource.cache
+C:\Users\jackk\Documents\___\Pathfinding\Pathfinding\Pathfinding\obj\Debug\net6.0-windows\Pathfinding.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jackk\Documents\___\Pathfinding\Pathfinding\Pathfinding\obj\Debug\net6.0-windows\Pathfinding.AssemblyInfoInputs.cache
+C:\Users\jackk\Documents\___\Pathfinding\Pathfinding\Pathfinding\obj\Debug\net6.0-windows\Pathfinding.AssemblyInfo.cs
+C:\Users\jackk\Documents\___\Pathfinding\Pathfinding\Pathfinding\obj\Debug\net6.0-windows\Pathfinding.csproj.CoreCompileInputs.cache
+C:\Users\jackk\Documents\___\Pathfinding\Pathfinding\Pathfinding\obj\Debug\net6.0-windows\Pathfinding.dll
+C:\Users\jackk\Documents\___\Pathfinding\Pathfinding\Pathfinding\obj\Debug\net6.0-windows\refint\Pathfinding.dll
+C:\Users\jackk\Documents\___\Pathfinding\Pathfinding\Pathfinding\obj\Debug\net6.0-windows\Pathfinding.pdb
+C:\Users\jackk\Documents\___\Pathfinding\Pathfinding\Pathfinding\obj\Debug\net6.0-windows\Pathfinding.genruntimeconfig.cache
+C:\Users\jackk\Documents\___\Pathfinding\Pathfinding\Pathfinding\obj\Debug\net6.0-windows\ref\Pathfinding.dll
