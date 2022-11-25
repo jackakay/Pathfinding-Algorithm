@@ -9,7 +9,7 @@
 ### Steps to making it better
 
  - By using the law of pythagoras we can assume that for any right-angled triangle that the hypotenuse is always shorter than the combination of the adjacent and opposite side. See below.
- -![pythagoras diagram](https://i.ibb.co/fS4PxgF/pythagoras.png)
+- ![pythagoras diagram](https://i.ibb.co/fS4PxgF/pythagoras.png)
 - Because of this, we can diagonally draw a line of the path where it intersects the x line so that we make the path shorter.
 - ![enter image description here](https://i.ibb.co/c67t9jj/pythagoras.png)
 ## How does it work?
