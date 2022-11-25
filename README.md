@@ -11,7 +11,7 @@
  - By using the law of pythagoras we can assume that for any right-angled triangle that the hypotenuse is always shorter than the combination of the adjacent and opposite side. See below.
  -![pythagoras diagram](https://i.ibb.co/fS4PxgF/pythagoras.png)
 - Because of this, we can diagonally draw a line of the path where it intersects the x line so that we make the path shorter.
-![enter image description here](https://i.ibb.co/c67t9jj/pythagoras.png)
+- ![enter image description here](https://i.ibb.co/c67t9jj/pythagoras.png)
 ## How does it work?
 To start with, we need to create a grid of tiles that the algorithm can move across. Each tile will be a way of moving and each tile can be connected to any adjacent tiles.
 ![enter image description here](https://i.ibb.co/rFYDN12/355-3553451-grid-clipart-empty-100-square-transparent-1-inch-grid.jpg)
