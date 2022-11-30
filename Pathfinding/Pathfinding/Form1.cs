@@ -27,7 +27,6 @@ namespace Pathfinding
 
         }
 
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -57,10 +56,7 @@ namespace Pathfinding
                     };
                     panel.MouseClick += new MouseEventHandler(pressed);
 
-
-
                     grid[x][y] = panel;
-
 
                 }
             }
@@ -168,18 +164,12 @@ namespace Pathfinding
                     for (int i = XDistance; i > 0; i--)
                     {
                         if (grid[start.X - i][start.Y].BackColor == Color.Green || grid[start.X - i][start.Y].BackColor == Color.Red) continue;
-
-
-
+                        
                         grid[start.X - i ][start.Y].BackColor = Color.Blue;
-
-
-
                     }
                     for (int i = 0; i < YDistance; i++)
                     {
                         if (grid[start.X - XDistance][start.Y + i].BackColor == Color.Green || grid[start.X - XDistance][start.Y + i].BackColor == Color.Red) continue;
-
 
                         grid[start.X - XDistance][start.Y + i].BackColor = Color.Blue;
 
@@ -192,15 +182,12 @@ namespace Pathfinding
                     {
                         if (grid[start.X - i][start.Y].BackColor == Color.Green || grid[start.X - i][start.Y].BackColor == Color.Red) continue;
 
-
-
                         grid[start.X - i][start.Y].BackColor = Color.Blue;
 
                     }
                     for (int i = 0; i < YDistance; i++)
                     {
                         if (grid[start.X - XDistance][start.Y - i].BackColor == Color.Green || grid[start.X - XDistance][start.Y + i].BackColor == Color.Red) continue;
-
 
                         grid[start.X - XDistance][start.Y - i].BackColor = Color.Blue;
 
@@ -217,11 +204,7 @@ namespace Pathfinding
                     {
                         if (grid[start.X + i][start.Y].BackColor == Color.Green || grid[start.X + i][start.Y].BackColor == Color.Red) continue;
 
-
-
                         grid[start.X + i][start.Y].BackColor = Color.Blue;
-
-
 
                     }
                     for (int i = 0; i < YDistance; i++)
