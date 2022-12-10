@@ -105,21 +105,7 @@ namespace Pathfinding
             Obstacle = true;
         }
 
-        private Panel[] getAdjacent(Panel[][] grid, Location coords)
-        {
-            Panel[] adjacent = new Panel[8];
-
-            adjacent[0] = grid[coords.X - 1][coords.Y - 1];
-            adjacent[1] = grid[coords.X - 1][coords.Y];
-            adjacent[2] = grid[coords.X - 1][coords.Y + 1];
-            adjacent[3] = grid[coords.X][coords.Y - 1];
-            adjacent[4] = grid[coords.X][coords.Y + 1];
-            adjacent[5] = grid[coords.X + 1][coords.Y - 1];
-            adjacent[6] = grid[coords.X + 1][coords.Y];
-            adjacent[7] = grid[coords.X + 1][coords.Y + 1];
-
-            return adjacent;
-        }
+        
 
         private Location? getEnd(Panel[][] grid)
         {
@@ -145,17 +131,46 @@ namespace Pathfinding
                 {
                     if (grid[i][j].BackColor == Color.Green)
                     {
+                        MessageBox.Show("X : " + i.ToString() + " Y : " + j.ToString());
                         return new Location(i, j);
                     }
                 }
             }
             return null;
         }
+        private Location[] getDiagonalTiles(Location cell)
+        {
+            //Will return an array of the diagonal adjacent cells to the input cell. Will be given as an array of locations. 
+            /*
+             * [0][][3]
+             * [][][]
+             * [1][][2]
+            */
+            Location[] diagonalCells = new Location[4];
+            diagonalCells[0] = new Location(cell.X - 1, cell.Y - 1);
+            diagonalCells[1] = new Location(cell.X - 1, cell.Y + 1);
+            diagonalCells[2] = new Location(cell.X + 1, cell.Y + 1);
+            diagonalCells[3] = new Location(cell.X + 1, cell.Y - 1);
+            return diagonalCells;
+        }
+
+        private void colourDiagonalPath(Location[] path)
+        {
+            for(int i = 0; i < path.Length - 1; i++)
+            {
+                grid[path[i].X][path[i].Y].BackColor = Color.Purple;
+            }
+        }
 
         private void button4_Click(object sender, EventArgs e)
         {
             Location start = getStart(grid);
             Location end = getEnd(grid);
+            Location[] diagonalPath = new Location[12];
+            int count = 0;
+            int countn = 0;
+            Location lastPoint = start;
+            bool solved = false;
 
             int XDistance = 0;
             int YDistance = 0;
@@ -164,91 +179,99 @@ namespace Pathfinding
                 XDistance = start.X - end.X;
                 if (start.Y < end.Y)
                 {
+                    //MessageBox.Show("End is diagonal down left from start");
                     YDistance = end.Y - start.Y;
                     for (int i = XDistance; i > 0; i--)
                     {
                         if (grid[start.X - i][start.Y].BackColor == Color.Green || grid[start.X - i][start.Y].BackColor == Color.Red) continue;
-
-
-
                         grid[start.X - i ][start.Y].BackColor = Color.Blue;
-
-
-
+                        
                     }
                     for (int i = 0; i < YDistance; i++)
                     {
                         if (grid[start.X - XDistance][start.Y + i].BackColor == Color.Green || grid[start.X - XDistance][start.Y + i].BackColor == Color.Red) continue;
-
-
                         grid[start.X - XDistance][start.Y + i].BackColor = Color.Blue;
-
+                    }
+                    for(int i = XDistance; i > 0; i--)
+                    {
+                        
+                        MessageBox.Show("new row");
+                        lastPoint = start;
+                        lastPoint.X = start.X - countn;
+                        // for some reason doesnt work?
+                        countn++;
+                        
+                        for(int j = 0; j < YDistance; j++)
+                        {
+                            Location diagonalTile = getDiagonalTiles(lastPoint)[1];
+                            if (diagonalTile.X < 0 || diagonalTile.X > 13 || diagonalTile.Y < 0 || diagonalTile.Y > 13) continue; 
+                            diagonalPath[count] = diagonalTile;
+                            //errors here
+                            richTextBox1.AppendText(lastPoint.X.ToString() + " " + lastPoint.Y.ToString() + "\n");
+                            lastPoint = diagonalTile;
+                            //MessageBox.Show(lastPoint.X.ToString() + " " + lastPoint.Y.ToString());
+                            
+                            if(grid[lastPoint.X][lastPoint.Y].BackColor == Color.Red)
+                            {
+                                MessageBox.Show("Found path");
+                                colourDiagonalPath(diagonalPath);
+                            }
+                            else
+                            {
+                                grid[lastPoint.X][lastPoint.Y].BackColor = Color.Magenta;
+                            }
+                           
+                            count++;
+                        }
                     }
                 }
                 else
                 {
+                    MessageBox.Show("End is diagonal up left from start");
                     YDistance = start.Y - end.Y;
                     for (int i = XDistance; i > 0; i--)
                     {
                         if (grid[start.X - i][start.Y].BackColor == Color.Green || grid[start.X - i][start.Y].BackColor == Color.Red) continue;
-
-
-
                         grid[start.X - i][start.Y].BackColor = Color.Blue;
-
                     }
                     for (int i = 0; i < YDistance; i++)
                     {
                         if (grid[start.X - XDistance][start.Y - i].BackColor == Color.Green || grid[start.X - XDistance][start.Y + i].BackColor == Color.Red) continue;
-
-
                         grid[start.X - XDistance][start.Y - i].BackColor = Color.Blue;
-
                     }
                 }
             }
             else if (start.X < end.X)
             {
                 XDistance = end.X - start.X;
+                MessageBox.Show("End is diagonal down right from start");
                 if (start.Y < end.Y)
                 {
                     YDistance = end.Y - start.Y;
                     for (int i = 0; i < XDistance; i++)
                     {
                         if (grid[start.X + i][start.Y].BackColor == Color.Green || grid[start.X + i][start.Y].BackColor == Color.Red) continue;
-
-
-
                         grid[start.X + i][start.Y].BackColor = Color.Blue;
-
-
-
                     }
                     for (int i = 0; i < YDistance; i++)
                     {
                         if (grid[start.X + XDistance][start.Y + i].BackColor == Color.Green || grid[start.X + XDistance][start.Y + i].BackColor == Color.Red) continue;
-
-
                         grid[start.X + XDistance][start.Y + i].BackColor = Color.Blue;
-
                     }
                 }
                 else
                 {
+                    MessageBox.Show("End is diagonal up right from start");
                     YDistance = start.Y - end.Y;
                     for (int i = 1; i < XDistance + 1; i++)
                     {
                         if (grid[start.X + i][start.Y].BackColor == Color.Green || grid[start.X + i][start.Y].BackColor == Color.Red) continue;
-
-
                         grid[start.X + i][start.Y].BackColor = Color.Blue;
-
                     }
                     for (int i = YDistance; i > 0; i--)
                     {
                         if (grid[start.X + XDistance][start.Y - i].BackColor == Color.Green || grid[start.X + XDistance][start.Y - i].BackColor == Color.Red) continue;
                         grid[start.X + XDistance][start.Y - i].BackColor = Color.Blue;
-
                     }
                 }
             }
@@ -276,6 +299,11 @@ namespace Pathfinding
             }
             public int X;
             public int Y;
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

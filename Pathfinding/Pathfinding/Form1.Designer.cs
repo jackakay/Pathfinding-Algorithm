@@ -33,12 +33,13 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(31, 52);
+            this.button1.Location = new System.Drawing.Point(31, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(122, 53);
             this.button1.TabIndex = 0;
@@ -49,7 +50,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(31, 111);
+            this.button2.Location = new System.Drawing.Point(31, 62);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(122, 53);
             this.button2.TabIndex = 1;
@@ -60,7 +61,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button3.Location = new System.Drawing.Point(31, 170);
+            this.button3.Location = new System.Drawing.Point(31, 121);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(122, 53);
             this.button3.TabIndex = 2;
@@ -71,7 +72,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button4.Location = new System.Drawing.Point(31, 229);
+            this.button4.Location = new System.Drawing.Point(31, 180);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(122, 53);
             this.button4.TabIndex = 3;
@@ -82,7 +83,7 @@
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button5.Location = new System.Drawing.Point(31, 288);
+            this.button5.Location = new System.Drawing.Point(31, 239);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(122, 53);
             this.button5.TabIndex = 4;
@@ -90,11 +91,21 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(31, 298);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(122, 229);
+            this.richTextBox1.TabIndex = 5;
+            this.richTextBox1.Text = "";
+            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(959, 539);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -114,5 +125,6 @@
         private Button button3;
         private Button button4;
         private Button button5;
+        private RichTextBox richTextBox1;
     }
 }
