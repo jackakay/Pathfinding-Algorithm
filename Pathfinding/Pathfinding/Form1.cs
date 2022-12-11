@@ -158,14 +158,24 @@ namespace Pathfinding
         {
             for(int i = 0; i < path.Length - 1; i++)
             {
-                grid[path[i].X][path[i].Y].BackColor = Color.Purple;
+                if (path[i] != null)
+                {
+                    if (grid[path[i].X][path[i].Y].BackColor != Color.Red)
+                    {
+                        grid[path[i].X][path[i].Y].BackColor = Color.Purple;
+                    }
+                }
             }
         }
+        
 
         private void button4_Click(object sender, EventArgs e)
         {
             Location start = getStart(grid);
             Location end = getEnd(grid);
+
+            int startx = start.X;
+            int starty = start.Y;
             Location[] diagonalPath = new Location[12];
             int count = 0;
             int countn = 0;
@@ -192,38 +202,37 @@ namespace Pathfinding
                         if (grid[start.X - XDistance][start.Y + i].BackColor == Color.Green || grid[start.X - XDistance][start.Y + i].BackColor == Color.Red) continue;
                         grid[start.X - XDistance][start.Y + i].BackColor = Color.Blue;
                     }
-                    for(int i = XDistance; i > 0; i--)
+                    for(int i = XDistance - 1; i > 0; i--)
                     {
                         
-                        MessageBox.Show("new row");
-                        lastPoint = start;
-                        lastPoint.X = start.X - countn;
-                        // for some reason doesnt work?
-                        countn++;
-                        
+                        lastPoint.X = startx - countn;
+                        lastPoint.Y = starty;
+
+                        countn++ ;
+                        count = 0;
                         for(int j = 0; j < YDistance; j++)
                         {
                             Location diagonalTile = getDiagonalTiles(lastPoint)[1];
                             if (diagonalTile.X < 0 || diagonalTile.X > 13 || diagonalTile.Y < 0 || diagonalTile.Y > 13) continue; 
                             diagonalPath[count] = diagonalTile;
-                            //errors here
+                           
                             richTextBox1.AppendText(lastPoint.X.ToString() + " " + lastPoint.Y.ToString() + "\n");
                             lastPoint = diagonalTile;
-                            //MessageBox.Show(lastPoint.X.ToString() + " " + lastPoint.Y.ToString());
+                           
                             
                             if(grid[lastPoint.X][lastPoint.Y].BackColor == Color.Red)
                             {
                                 MessageBox.Show("Found path");
                                 colourDiagonalPath(diagonalPath);
+                                break;
                             }
-                            else
-                            {
-                                grid[lastPoint.X][lastPoint.Y].BackColor = Color.Magenta;
-                            }
+                            
                            
                             count++;
                         }
                     }
+                    countn = 0;
+                    count = 0;
                 }
                 else
                 {
@@ -239,6 +248,37 @@ namespace Pathfinding
                         if (grid[start.X - XDistance][start.Y - i].BackColor == Color.Green || grid[start.X - XDistance][start.Y + i].BackColor == Color.Red) continue;
                         grid[start.X - XDistance][start.Y - i].BackColor = Color.Blue;
                     }
+                    for (int i = XDistance - 1; i > 0; i--)
+                    {
+
+                        lastPoint.X = startx - countn;
+                        lastPoint.Y = starty;
+
+                        countn++;
+                        count = 0;
+                        for (int j = 0; j < YDistance; j++)
+                        {
+                            Location diagonalTile = getDiagonalTiles(lastPoint)[0];
+                            if (diagonalTile.X < 0 || diagonalTile.X > 13 || diagonalTile.Y < 0 || diagonalTile.Y > 13) continue;
+                            diagonalPath[count] = diagonalTile;
+
+                            richTextBox1.AppendText(lastPoint.X.ToString() + " " + lastPoint.Y.ToString() + "\n");
+                            lastPoint = diagonalTile;
+
+
+                            if (grid[lastPoint.X][lastPoint.Y].BackColor == Color.Red)
+                            {
+                                MessageBox.Show("Found path");
+                                colourDiagonalPath(diagonalPath);
+                                break;
+                            }
+
+
+                            count++;
+                        }
+                    }
+                    countn = 0;
+                    count = 0;
                 }
             }
             else if (start.X < end.X)
@@ -258,6 +298,37 @@ namespace Pathfinding
                         if (grid[start.X + XDistance][start.Y + i].BackColor == Color.Green || grid[start.X + XDistance][start.Y + i].BackColor == Color.Red) continue;
                         grid[start.X + XDistance][start.Y + i].BackColor = Color.Blue;
                     }
+                    for (int i = 0; i < XDistance; i++)
+                    {
+
+                        lastPoint.X = startx + countn;
+                        lastPoint.Y = starty;
+
+                        countn++;
+                        count = 0;
+                        for (int j = 0; j < YDistance; j++)
+                        {
+                            Location diagonalTile = getDiagonalTiles(lastPoint)[2];
+                            if (diagonalTile.X < 0 || diagonalTile.X > 13 || diagonalTile.Y < 0 || diagonalTile.Y > 13) continue;
+                            diagonalPath[count] = diagonalTile;
+
+                            richTextBox1.AppendText(lastPoint.X.ToString() + " " + lastPoint.Y.ToString() + "\n");
+                            lastPoint = diagonalTile;
+
+
+                            if (grid[lastPoint.X][lastPoint.Y].BackColor == Color.Red)
+                            {
+                                MessageBox.Show("Found path");
+                                colourDiagonalPath(diagonalPath);
+                                break;
+                            }
+
+
+                            count++;
+                        }
+                    }
+                    countn = 0;
+                    count = 0;
                 }
                 else
                 {
@@ -273,6 +344,37 @@ namespace Pathfinding
                         if (grid[start.X + XDistance][start.Y - i].BackColor == Color.Green || grid[start.X + XDistance][start.Y - i].BackColor == Color.Red) continue;
                         grid[start.X + XDistance][start.Y - i].BackColor = Color.Blue;
                     }
+                    for (int i = 0; i < XDistance; i++)
+                    {
+
+                        lastPoint.X = startx + countn;
+                        lastPoint.Y = starty;
+
+                        countn++;
+                        count = 0;
+                        for (int j = 0; j < YDistance; j++)
+                        {
+                            Location diagonalTile = getDiagonalTiles(lastPoint)[3];
+                            if (diagonalTile.X < 0 || diagonalTile.X > 13 || diagonalTile.Y < 0 || diagonalTile.Y > 13) continue;
+                            diagonalPath[count] = diagonalTile;
+
+                            richTextBox1.AppendText(lastPoint.X.ToString() + " " + lastPoint.Y.ToString() + "\n");
+                            lastPoint = diagonalTile;
+
+
+                            if (grid[lastPoint.X][lastPoint.Y].BackColor == Color.Red)
+                            {
+                                MessageBox.Show("Found path");
+                                colourDiagonalPath(diagonalPath);
+                                break;
+                            }
+
+
+                            count++;
+                        }
+                    }
+                    countn = 0;
+                    count = 0;
                 }
             }
 
