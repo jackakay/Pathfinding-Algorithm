@@ -19,3 +19,6 @@ To start with, we need to create a grid of tiles that the algorithm can move acr
 As you can see above the green tiles are the tiles that the red can move. This will be the rules for our program.
 
 To create the grid we will need to use a for loop. Each tile will be represented as a C# winforms panel. See below.![enter image description here](https://i.ibb.co/4T9P4NG/code-snippet.png)
+
+###Notes
+This pathfinding algorithm is not perfect, i was simply trying something new and it has many flaws. The algorithm found it difficult for certain orientations of the goal and start, in the future i would like to add djkistras algorithm and A* pathfinding algorithm into this project.
